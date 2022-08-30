@@ -23,7 +23,6 @@ namespace SpaceCan.SelectionNavigator
         private static bool ignoreSelectionChange = false;
 
         public static HistoryQueue<SelectionSnapshot> History => history;
-        public static SelectionSnapshot Current => History.Current();
         public static bool SelectionIsEmpty => Selection.activeObject == null;
         public static int Size => history?.Size ?? 0;
         public static Action HistoryChanged;
@@ -90,11 +89,6 @@ namespace SpaceCan.SelectionNavigator
             HistoryChanged?.Invoke();
         }
 
-        public static SelectionSnapshot TakeSnapshot()
-        {
-            return new SelectionSnapshot(Selection.activeObject, Selection.objects, Selection.activeContext);
-        }
-
 
         public static void Select(int index)
         {
@@ -106,10 +100,9 @@ namespace SpaceCan.SelectionNavigator
         [Shortcut("History/Back", null, KeyCode.LeftArrow, ShortcutModifiers.Control)]
         public static void Back()
         {
-            if (history.Size <= 0) return;
+            if (history.Size <= 0 || history.GetCurrentIndex() == 0) return;
 
-            var prev = SelectionIsEmpty ? history.Current() : history.Previous();
-
+            var prev = history.Previous();
             if (prev.IsEmpty)
             {
                 history.Next();
@@ -125,10 +118,9 @@ namespace SpaceCan.SelectionNavigator
         [Shortcut("History/Forward", null, KeyCode.RightArrow, ShortcutModifiers.Control)]
         public static void Forward()
         {
-            if (history.Size <= 0) return;
+            if (history.Size <= 0 || history.GetCurrentIndex() == history.Size - 1) return;
 
-            var next = SelectionIsEmpty ? history.Current() : history.Next();
-
+            var next = history.Next();
             if (next.IsEmpty)
             {
                 history.Previous();
@@ -154,6 +146,12 @@ namespace SpaceCan.SelectionNavigator
         public static void HideSelectionFromHistory()
         {
             ignoreSelectionChange = true;
+        }
+
+
+        private static SelectionSnapshot TakeSnapshot()
+        {
+            return new SelectionSnapshot(Selection.activeObject, Selection.objects, Selection.activeContext);
         }
 
         private static void Select(SelectionSnapshot snapshot)
