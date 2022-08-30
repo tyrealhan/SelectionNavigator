@@ -1,0 +1,12 @@
+{
+    "name": "net.spacecan.selection-navigator",
+    "version": "0.1.0",
+    "displayName": "Selection Navigator",
+    "description": "Privde a selection history.",
+    "unity": "2019.1",
+    "author": {
+        "name": "Tyreal",
+        "email": "tyreal@spacecan.net",
+        "url": "https://spacecan.net"
+    }
+}
