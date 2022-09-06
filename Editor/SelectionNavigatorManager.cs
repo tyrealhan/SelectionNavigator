@@ -115,7 +115,7 @@ namespace SpaceCan.SelectionNavigator
             HistoryChanged?.Invoke();
         }
 
-        [Shortcut("History/Forward", null, KeyCode.Comma, ShortcutModifiers.Control)]
+        [Shortcut("History/Forward", null, KeyCode.Quote, ShortcutModifiers.Control)]
         public static void Forward()
         {
             if (history.Size <= 0 || history.GetCurrentIndex() == history.Size - 1) return;
