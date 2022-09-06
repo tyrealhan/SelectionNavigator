@@ -7,7 +7,7 @@
 ## Install via git URL
 需要至少 Unity 2019.1 以上版本。
 - Package Manager > + > Add package from Git URL...
-- Enter https://github.com/tyrealhan/SelectionNavigator.git#0.1.0
+- Enter https://github.com/tyrealhan/SelectionNavigator.git#0.1.1
 
 ## Inspired
 https://github.com/Peaj/Unitility/tree/main/Packages/de.peaj.selectionhistory
