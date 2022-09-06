@@ -1,8 +1,8 @@
 {
     "name": "net.spacecan.selection-navigator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "displayName": "Selection Navigator",
-    "description": "记录Unity中的所有选择目标，可以在这些目标之前快速切换。支持键盘快捷键和鼠标导航按键。",
+    "description": "记录Unity中的所有选择目标，可以在这些目标之前快速切换。支持鼠标快捷键，键盘快捷键为Ctrl+； / Ctrl+'",
     "unity": "2019.1",
     "author": {
         "name": "Tyreal",
