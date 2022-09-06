@@ -97,7 +97,7 @@ namespace SpaceCan.SelectionNavigator
             HistoryChanged?.Invoke();
         }
 
-        [Shortcut("History/Back", null, KeyCode.LeftArrow, ShortcutModifiers.Control)]
+        [Shortcut("History/Back", null, KeyCode.Semicolon, ShortcutModifiers.Control)]
         public static void Back()
         {
             if (history.Size <= 0 || history.GetCurrentIndex() == 0) return;
@@ -115,7 +115,7 @@ namespace SpaceCan.SelectionNavigator
             HistoryChanged?.Invoke();
         }
 
-        [Shortcut("History/Forward", null, KeyCode.RightArrow, ShortcutModifiers.Control)]
+        [Shortcut("History/Forward", null, KeyCode.Comma, ShortcutModifiers.Control)]
         public static void Forward()
         {
             if (history.Size <= 0 || history.GetCurrentIndex() == history.Size - 1) return;
